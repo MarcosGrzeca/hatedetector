@@ -1,0 +1,5 @@
+wget https://marcosg.s3-sa-east-1.amazonaws.com/test-pos.txt
+wget https://marcosg.s3-sa-east-1.amazonaws.com/test-neg.txt
+wget https://marcosg.s3-sa-east-1.amazonaws.com/train-pos.txt
+wget https://marcosg.s3-sa-east-1.amazonaws.com/train-neg.txt
+wget https://marcosg.s3-sa-east-1.amazonaws.com/train-unsup.txt
