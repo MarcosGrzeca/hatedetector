@@ -72,27 +72,33 @@ def test():
 
     model = Doc2Vec.load('kagggle.d2v')
 
-    train_arrays = numpy.zeros((3945, size))
-    train_labels = numpy.zeros(3945)
+    tamTrainNo = 12500
+    tamTrainYes = 12500
 
-    for i in range(2896):
+    tamTestNo = 12500
+    tamTestYes = 12500
+
+    train_arrays = numpy.zeros((tamTrainNo + tamTrainYes, size))
+    train_labels = numpy.zeros(tamTrainNo + tamTrainYes)
+
+    for i in range(tamTrainNo):
         train_arrays[i] = model.docvecs['TRAIN_NO_' + str(i)]
         train_labels[i] = 0
 
-    for i in range(1049):
-        train_arrays[2896+i] = model.docvecs['TRAIN_YES_' + str(i)]
-        train_labels[2896+i] = 1
+    for i in range(tamTrainYes):
+        train_arrays[tamTrainNo+i] = model.docvecs['TRAIN_YES_' + str(i)]
+        train_labels[tamTrainNo+i] = 1
 
-    test_arrays = numpy.zeros((2646, size))
-    test_labels = numpy.zeros(2646)
+    test_arrays = numpy.zeros((tamTestNo + tamTestYes, size))
+    test_labels = numpy.zeros(tamTestNo + tamTestYes)
 
-    for i in range(1953):
+    for i in range(tamTestNo):
         test_arrays[i] = model.docvecs['TEST_NO_' + str(i)]
         test_labels[i] = 0
 
-    for i in range(693):
-        test_arrays[1953+i] = model.docvecs['TEST_YES_' + str(i)]
-        test_labels[1953+i] = 1
+    for i in range(tamTestYes):
+        test_arrays[tamTestNo+i] = model.docvecs['TEST_YES_' + str(i)]
+        test_labels[tamTestNo+i] = 1
 
     #print(train_labels)
     #print(test_labels)
