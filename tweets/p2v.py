@@ -56,7 +56,7 @@ def trainning():
 
     sentences = LabeledLineSentence(sources)
 
-    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=50)
+    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=500)
 
     model.build_vocab(sentences.to_array())
 
