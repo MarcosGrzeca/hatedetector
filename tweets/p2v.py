@@ -52,10 +52,7 @@ class LabeledLineSentence(object):
 def trainning():
     #./manage.py shell -c="from tweets.p2v import trainning; trainning()"
 
-    #sources = {'offcom_yes.txt':'YES', 'offcom_no.txt':'NO', 'offcom_uns.txt':'UNS'}
-    #sources = {'offcom_yes.txt':'YES', 'offcom_no.txt':'NO'}
-    sources = {'kagggle_test_yes.txt':'TEST_YES', 'kagggle_test_no.txt':'TEST_NO', 'kaggle_train_yes.txt':'TRAIN_YES', 'kaggle_train_no.txt':'TRAIN_NO', 'kaggle_train_uns.txt':'TRAIN_UNS'}
-    #sources = {'kagggle_test_yes.txt':'TEST_YES', 'kagggle_test_no.txt':'TEST_NO', 'kaggle_train_yes.txt':'TRAIN_YES', 'kaggle_train_no.txt':'TRAIN_NO'}
+    sources = {'test-yes.txt':'TEST_YES', 'test-no.txt':'TEST_NO', 'train-yes.txt':'TRAIN_YES', 'train-no.txt':'TRAIN_NO', 'train-uns.txt':'TRAIN_UNS'}
 
     sentences = LabeledLineSentence(sources)
 
@@ -106,3 +103,5 @@ def test():
     classifier = LogisticRegression()
     classifier.fit(train_arrays, train_labels)
     print(classifier.score(test_arrays, test_labels))
+
+trainning()
