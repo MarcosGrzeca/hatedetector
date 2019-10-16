@@ -57,16 +57,16 @@ def trainning():
     sentences = LabeledLineSentence(sources)
     print("Let's train")
 
-    # model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=500)
+    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=500)
 
-    # model.build_vocab(sentences.to_array())
+    model.build_vocab(sentences.to_array())
 
-    # model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
+    model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
 
-    # model.save('kagggle.d2v')
+    model.save('kagggle.d2v')
 
-    # print("Final model")
-    # test()
+    print("Let's train")
+    test()
 
 
 
@@ -81,8 +81,8 @@ def test():
     tamTestNo = 12500
     tamTestYes = 12500
 
-    train_arrays = numpy.zeros((tamTrainNo + tamTrainYes, size))
-    train_labels = numpy.zeros(tamTrainNo + tamTrainYes)
+    train_arrays = numpy.zeros(((tamTrainNo + tamTrainYes), size))
+    train_labels = numpy.zeros((tamTrainNo + tamTrainYes))
 
     for i in range(tamTrainNo):
         train_arrays[i] = model.docvecs['TRAIN_NO_' + str(i)]
@@ -92,8 +92,8 @@ def test():
         train_arrays[tamTrainNo+i] = model.docvecs['TRAIN_YES_' + str(i)]
         train_labels[tamTrainNo+i] = 1
 
-    test_arrays = numpy.zeros((tamTestNo + tamTestYes, size))
-    test_labels = numpy.zeros(tamTestNo + tamTestYes)
+    test_arrays = numpy.zeros(((tamTestNo + tamTestYes), size))
+    test_labels = numpy.zeros((tamTestNo + tamTestYes))
 
     for i in range(tamTestNo):
         test_arrays[i] = model.docvecs['TEST_NO_' + str(i)]
