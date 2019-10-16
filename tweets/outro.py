@@ -63,7 +63,10 @@ def trainning():
 
     model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
 
-    model.save('kagggle.d2v')
+    model.save('./imdb.d2v')
+    model = Doc2Vec.load('./imdb.d2v')
+
+    model['TRAIN_NEG_0']
 
     print("Let's train")
     
