@@ -52,7 +52,7 @@ class LabeledLineSentence(object):
 def trainning():
     #./manage.py shell -c="from tweets.p2v import trainning; trainning()"
 
-    sources = {'test-yes.txt':'TEST_YES', 'test-no.txt':'TEST_NO', 'train-yes.txt':'TRAIN_YES', 'train-no.txt':'TRAIN_NO', 'train-uns.txt':'TRAIN_UNS'}
+    sources = {'test-pos.txt':'TEST_YES', 'test-neg.txt':'TEST_NO', 'train-pos.txt':'TRAIN_YES', 'train-neg.txt':'TRAIN_NO', 'train-unsup.txt':'TRAIN_UNS'}
 
     sentences = LabeledLineSentence(sources)
 
