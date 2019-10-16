@@ -55,15 +55,18 @@ def trainning():
     sources = {'test-pos.txt':'TEST_YES', 'test-neg.txt':'TEST_NO', 'train-pos.txt':'TRAIN_YES', 'train-neg.txt':'TRAIN_NO', 'train-unsup.txt':'TRAIN_UNS'}
 
     sentences = LabeledLineSentence(sources)
+    print("Let's train")
 
-    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=500)
+    # model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=500)
 
-    model.build_vocab(sentences.to_array())
+    # model.build_vocab(sentences.to_array())
 
-    model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
+    # model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
 
-    model.save('kagggle.d2v')
-    test()
+    # model.save('kagggle.d2v')
+
+    # print("Final model")
+    # test()
 
 
 
