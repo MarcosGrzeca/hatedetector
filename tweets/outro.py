@@ -57,14 +57,14 @@ def trainning():
     sentences = LabeledLineSentence(sources)
     print("Let's train")
 
-    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=8)
+    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=50)
 
     model.build_vocab(sentences.to_array())
 
     model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
 
-    model.save('./imdb.d2v')
-    model = Doc2Vec.load('./imdb.d2v')
+    model.save('./imdb2.d2v')
+    model = Doc2Vec.load('./imdb2.d2v')
 
     model['TRAIN_NEG_0']
 
