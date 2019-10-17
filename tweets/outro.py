@@ -97,8 +97,6 @@ def trainning():
     classifier = LogisticRegression()
     classifier.fit(train_arrays, train_labels)
 
-    print train_labels
-
     print(classifier.score(test_arrays, test_labels))
 
 
