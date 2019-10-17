@@ -57,11 +57,13 @@ def trainning():
     sentences = LabeledLineSentence(sources)
     print("Let's train")
 
-    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=100)
+    model = Doc2Vec(min_count=1, window=10, vector_size=size, sample=1e-4, negative=5, workers=8)
 
     model.build_vocab(sentences.to_array())
 
-    model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
+    # model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
+    for epoch in range(10):
+        model.train(sentences.sentences_perm())
 
     model.save('./imdb.d2v')
     model = Doc2Vec.load('./imdb.d2v')
@@ -94,6 +96,8 @@ def trainning():
 
     classifier = LogisticRegression()
     classifier.fit(train_arrays, train_labels)
+
+    print train_labels
 
     print(classifier.score(test_arrays, test_labels))
 
