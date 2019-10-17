@@ -61,9 +61,7 @@ def trainning():
 
     model.build_vocab(sentences.to_array())
 
-    # model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
-    for epoch in range(10):
-        model.train(sentences.sentences_perm())
+    model.train(sentences.sentences_perm(), total_words=model.corpus_count, epochs=10)
 
     model.save('./imdb.d2v')
     model = Doc2Vec.load('./imdb.d2v')
